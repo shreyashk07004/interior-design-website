@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Indigo — Interior Design Studio, Kolhapur</title>
+  <meta name="description" content="Maison Indigo is a full-service interior design studio crafting residential and commercial spaces across Kolhapur. Book a free design consultation." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230B1020'/><path d='M18 46V18l14 16 14-16v28' stroke='%23F0587C' stroke-width='5' fill='none' stroke-linejoin='round'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=1.0.0" />
+</head>
+<body>
+
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__mark">
+      <span>M</span><span>I</span>
+    </div>
+    <p>Maison Indigo</p>
+  </div>
+
+  <!-- ============ WELCOME POPUP ============ -->
+  <div class="modal" id="welcomeModal" aria-hidden="true" role="dialog" aria-labelledby="welcomeTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div data-lenis-prevent class="modal__card modal__card--split">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+      <div class="modal__visual">
+        <div class="modal__visual-img" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="modal__visual-tag">
+          <strong>Festive Offer</strong>
+          <span>Flat 15% off on design fees + free 3D renders</span>
+        </div>
+      </div>
+      <div class="modal__body">
+        <span class="eyebrow">Free Consultation</span>
+        <h3 id="welcomeTitle">Let's design the home you've been imagining.</h3>
+        <p class="muted">Share a few details and our senior designer will call you within 24 hours.</p>
+        <form class="form js-lead-form" data-form="popup" novalidate>
+          <div class="field">
+            <input type="text" name="name" placeholder=" " required />
+            <label>Your Name</label>
+          </div>
+          <div class="field">
+            <input type="tel" name="phone" placeholder=" " required pattern="[0-9]{10}" maxlength="10" />
+            <label>Mobile Number (10 digits)</label>
+          </div>
+          <div class="field">
+            <select name="property" required>
+              <option value="" disabled selected hidden></option>
+              <option>1 BHK</option><option>2 BHK</option><option>3 BHK</option>
+              <option>4+ BHK / Villa</option><option>Office / Commercial</option>
+            </select>
+            <label>Property Type</label>
+          </div>
+          <label class="check"><input type="checkbox" name="whatsapp" checked /> <span>Send me updates on WhatsApp</span></label>
+          <button type="submit" class="btn btn--primary btn--block">Book Free Consultation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p class="topbar__msg">✦ Now booking for 2027 — Free 3D design walkthrough on every project</p>
+      <div class="topbar__links">
+        <a href="tel:+918767807414">+91 87678 07414</a>
+        <a href="mailto:hello@maisonindigo.studio">hello@maisonindigo.studio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="logo" aria-label="Maison Indigo home">
+        <span class="logo__mark">MI</span>
+        <span class="logo__text">Maison <em>Indigo</em></span>
+      </a>
+      <nav class="nav" id="nav" data-lenis-prevent>
+        <a href="#about">Studio</a>
+        <div class="nav__drop">
+          <a href="#services">Services <span class="caret">▾</span></a>
+          <div class="nav__menu">
+            <a href="#services">Full Home Interiors</a>
+            <a href="#services">Modular Kitchens</a>
+            <a href="#services">Wardrobes & Storage</a>
+            <a href="#services">Commercial & Office</a>
+            <a href="#services">Renovation</a>
+          </div>
+        </div>
+        <a href="#projects">Projects</a>
+        <a href="#studio3d">3D Studio</a>
+        <a href="#process">Process</a>
+        <a href="#estimator">Cost Estimator</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header__cta">
+        <button class="btn btn--primary btn--sm js-open-consult">Enquire Now</button>
+        <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO SLIDER ============ -->
+  <section class="hero" id="home">
+    <div class="hero__slides">
+      <div class="hero__slide is-active" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <div class="hero__text">
+        <span class="eyebrow eyebrow--light">Award-winning Interior Studio · Est. 2011</span>
+        <h1 class="hero__title">
+          <span class="hero__line" data-slide="0">Spaces that feel <em>like you.</em></span>
+          <span class="hero__line" data-slide="1">Crafted homes, <em>quietly bold.</em></span>
+          <span class="hero__line" data-slide="2">Workplaces with <em>a soul.</em></span>
+        </h1>
+        <p class="hero__sub">From concept sketches to the final cushion, Maison Indigo designs and delivers turnkey interiors in 45 days, backed by a 10-year warranty.</p>
+        <div class="hero__btns">
+          <button class="btn btn--primary js-open-consult">Book Free Consultation</button>
+          <a href="#projects" class="btn btn--ghost-light">Explore Projects →</a>
+        </div>
+      </div>
+      <div class="hero__counter">
+        <span class="hero__current">01</span>
+        <span class="hero__bar"><i></i></span>
+        <span class="hero__total">03</span>
+        <div class="hero__arrows">
+          <button class="hero__arrow" data-dir="-1" aria-label="Previous slide">←</button>
+          <button class="hero__arrow" data-dir="1" aria-label="Next slide">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"></div>
+    <div class="hero__badge">
+      <div class="hero__badge-ring">
+        <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+          <text><textPath href="#circ">DESIGN · BUILD · DELIVER · DESIGN · BUILD · DELIVER ·</textPath></text></svg>
+        <span>45<small>days</small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AWARDS TICKER ============ -->
+  <div class="ticker" aria-label="Awards and recognitions">
+    <div class="ticker__track">
+      <span>Best Residential Studio — Deccan Design Circle 2025</span><i>✦</i>
+      <span>Top 50 Interior Firms — Interiors Ledger</span><i>✦</i>
+      <span>Featured in Ghar &amp; Form Magazine</span><i>✦</i>
+      <span>Luxury Interiors of the Year 2024</span><i>✦</i>
+      <span>Sustainable Design Honour — Craft &amp; Space Forum</span><i>✦</i>
+      <span>Best Residential Studio — Deccan Design Circle 2025</span><i>✦</i>
+      <span>Top 50 Interior Firms — Interiors Ledger</span><i>✦</i>
+      <span>Featured in Ghar &amp; Form Magazine</span><i>✦</i>
+      <span>Luxury Interiors of the Year 2024</span><i>✦</i>
+      <span>Sustainable Design Honour — Craft &amp; Space Forum</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section about" id="about">
+    <div class="container about__grid">
+      <div class="about__media reveal">
+        <div class="about__main"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=900&q=80" alt="Elegant living room designed by Maison Indigo" loading="lazy" data-parallax /></div>
+        <img class="about__media-sm" src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="Detail of a styled console table" loading="lazy" />
+        <div class="about__exp">
+          <strong>15+</strong>
+          <span>Years of crafting<br/>beautiful spaces</span>
+        </div>
+      </div>
+      <div class="about__text reveal">
+        <span class="eyebrow">Our Studio</span>
+        <h2 class="title">We don't decorate rooms.<br/>We <em>compose</em> the way you live.</h2>
+        <p>Founded by architects <strong>Aanya Mehra</strong> and <strong>Kabir Rao</strong>, Maison Indigo is a 60-member design and execution studio. We pair a gallery-like eye for detail with an in-house factory, so every home we touch feels personal, works hard and lasts.</p>
+        <ul class="about__list">
+          <li><span>01</span> In-house design, manufacturing & site teams</li>
+          <li><span>02</span> Transparent, itemised pricing with no hidden costs</li>
+          <li><span>03</span> Photo-real 3D renders before work begins</li>
+          <li><span>04</span> Dedicated project manager & live tracking app</li>
+        </ul>
+        <div class="about__sign">
+          <div>
+            <p class="signature">Aanya &amp; Kabir</p>
+            <small>Founders, Maison Indigo</small>
+          </div>
+          <a href="#process" class="btn btn--outline">How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat"><strong class="js-count" data-target="850">0</strong><span>+</span><p>Homes Delivered</p></div>
+      <div class="stat"><strong class="js-count" data-target="15">0</strong><span>+</span><p>Years of Experience</p></div>
+      <div class="stat"><strong class="js-count" data-target="480000">0</strong><span>+</span><p>Sq. Ft. Designed</p></div>
+      <div class="stat"><strong class="js-count" data-target="22">0</strong><span></span><p>Design Awards</p></div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">What We Do</span>
+          <h2 class="title">Interiors for every <em>chapter</em> of life</h2>
+        </div>
+        <p class="section__lead">One studio for design, materials, manufacturing and installation, so you never have to deal with ten different vendors.</p>
+      </div>
+      <div class="services__grid">
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">01</span>
+            <h3>Full Home Interiors</h3>
+            <p>Turnkey design for apartments, penthouses and villas, from layout planning to styling.</p>
+            <button class="link-arrow js-open-consult" data-service="Full Home Interiors">Get a quote →</button>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">02</span>
+            <h3>Modular Kitchens</h3>
+            <p>Ergonomic kitchens with soft-close hardware, quartz tops and smart storage.</p>
+            <button class="link-arrow js-open-consult" data-service="Modular Kitchen">Get a quote →</button>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">03</span>
+            <h3>Bedrooms & Wardrobes</h3>
+            <p>Calm, restful bedrooms with walk-ins, sliding wardrobes and bespoke headboards.</p>
+            <button class="link-arrow js-open-consult" data-service="Bedroom & Wardrobe">Get a quote →</button>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">04</span>
+            <h3>Commercial & Office</h3>
+            <p>Workspaces, studios, cafés and retail that reflect your brand and improve productivity.</p>
+            <button class="link-arrow js-open-consult" data-service="Commercial">Get a quote →</button>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">05</span>
+            <h3>Living & Dining</h3>
+            <p>Statement living rooms, TV units, crockery units and dining zones made for gathering.</p>
+            <button class="link-arrow js-open-consult" data-service="Living & Dining">Get a quote →</button>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="service__media"><div class="service__img" style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="service__body">
+            <span class="service__num">06</span>
+            <h3>Renovation & Styling</h3>
+            <p>Refresh an existing home with new finishes, lighting, furniture and décor curation.</p>
+            <button class="link-arrow js-open-consult" data-service="Renovation">Get a quote →</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- USP strip -->
+      <div class="usp">
+        <div class="usp__item"><span class="usp__icon">⟡</span><div><strong>10-Year Warranty</strong><p>On all modular products</p></div></div>
+        <div class="usp__item"><span class="usp__icon">◷</span><div><strong>45-Day Delivery</strong><p>Or we pay you rent*</p></div></div>
+        <div class="usp__item"><span class="usp__icon">✧</span><div><strong>146 Quality Checks</strong><p>At factory and on site</p></div></div>
+        <div class="usp__item"><span class="usp__icon">₹</span><div><strong>Easy EMIs</strong><p>Starting at 0% interest</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS / PORTFOLIO ============ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">Selected Work</span>
+          <h2 class="title">Recently <em>completed</em> projects</h2>
+        </div>
+        <div class="filters" role="tablist">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="living">Living</button>
+          <button class="filter" data-filter="kitchen">Kitchen</button>
+          <button class="filter" data-filter="bedroom">Bedroom</button>
+          <button class="filter" data-filter="commercial">Commercial</button>
+        </div>
+      </div>
+      <div class="gallery" id="gallery">
+        <figure class="tile tile--tall" data-cat="living">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80" alt="The Serene Residence living room" loading="lazy" />
+          <figcaption><span>Living · 3 BHK · Tarabai Park</span><h4>The Serene Residence</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="kitchen">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80" alt="Open-plan modular kitchen" loading="lazy" />
+          <figcaption><span>Kitchen · 2 BHK · Rajarampuri</span><h4>Linen &amp; Oak Kitchen</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="bedroom">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Soft-toned master bedroom" loading="lazy" />
+          <figcaption><span>Bedroom · Villa · Panhala</span><h4>Hilltop Calm Suite</h4></figcaption>
+        </figure>
+        <figure class="tile tile--wide" data-cat="commercial">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="Modern office workspace" loading="lazy" />
+          <figcaption><span>Commercial · 8,000 sq ft · Shiroli MIDC</span><h4>Meridian Labs HQ</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="living">
+          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80" alt="Bright living space with large windows" loading="lazy" />
+          <figcaption><span>Living · Penthouse · Nagala Park</span><h4>Skyline Penthouse</h4></figcaption>
+        </figure>
+        <figure class="tile tile--tall" data-cat="bedroom">
+          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=900&q=80" alt="Boutique-style bedroom" loading="lazy" />
+          <figcaption><span>Bedroom · 3 BHK · Ruikar Colony</span><h4>The Terracotta Retreat</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="kitchen">
+          <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=900&q=80" alt="Island kitchen with pendant lights" loading="lazy" />
+          <figcaption><span>Kitchen · 4 BHK · Kasaba Bawada</span><h4>Island of Light</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="commercial">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80" alt="Café interior" loading="lazy" />
+          <figcaption><span>Commercial · Café · Shahupuri</span><h4>Velvet Hour Café</h4></figcaption>
+        </figure>
+        <figure class="tile" data-cat="bedroom">
+          <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=80" alt="Airy guest bedroom" loading="lazy" />
+          <figcaption><span>Bedroom · 2 BHK · Sane Guruji Vasahat</span><h4>The Indigo Nest</h4></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Previous">←</button>
+    <figure>
+      <img src="" alt="" id="lbImg" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__next" aria-label="Next">→</button>
+  </div>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <section class="section compare">
+    <div class="container compare__grid">
+      <div class="compare__text reveal">
+        <span class="eyebrow">The Transformation</span>
+        <h2 class="title">Drag to see the <em>before &amp; after</em></h2>
+        <p>A 1,100 sq ft resale flat in Shahupuri, transformed in 42 days. We opened the layout, added warm lighting, built custom joinery and gave the family twice the storage.</p>
+        <ul class="compare__facts">
+          <li><strong>42</strong><span>Days</span></li>
+          <li><strong>2×</strong><span>Storage</span></li>
+          <li><strong>₹9L</strong><span>Budget</span></li>
+        </ul>
+      </div>
+      <div class="ba reveal" id="ba">
+        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80" alt="After: finished premium living room" class="ba__after" />
+        <div class="ba__before">
+          <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=1200&q=80" alt="Before: plain, basic living room" />
+        </div>
+        <span class="ba__label ba__label--l">Before</span>
+        <span class="ba__label ba__label--r">After</span>
+        <div class="ba__handle"><span>⟷</span></div>
+        <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Before and after slider" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3D STUDIO (three.js) ============ -->
+  <section class="section studio3d" id="studio3d">
+    <div class="container studio3d__grid">
+      <div class="studio3d__text">
+        <span class="eyebrow">Interactive 3D Studio</span>
+        <h2 class="title">Style the room.<br/><em>Live, in 3D.</em></h2>
+        <p class="muted">This is how we work with every client. Try finishes in real time before anything is built. Drag to walk around the room, then pick a combination you love.</p>
+        <div class="swatches" id="swatches">
+          <div class="swatches__group" data-part="sofa">
+            <strong>Sofa Upholstery</strong>
+            <div class="swatches__row">
+              <button class="swatch is-active" data-color="#1B2550"><i style="background:#1B2550"></i>Midnight</button>
+              <button class="swatch" data-color="#7A1E34"><i style="background:#7A1E34"></i>Wine Velvet</button>
+              <button class="swatch" data-color="#2541B2"><i style="background:#2541B2"></i>Cobalt</button>
+              <button class="swatch" data-color="#F4F6FB"><i style="background:#F4F6FB"></i>Snow Bouclé</button>
+            </div>
+          </div>
+          <div class="swatches__group" data-part="wall">
+            <strong>Feature Wall</strong>
+            <div class="swatches__row">
+              <button class="swatch is-active" data-color="#F7F8FC"><i style="background:#F7F8FC"></i>Pure White</button>
+              <button class="swatch" data-color="#1A2140"><i style="background:#1A2140"></i>Ink Navy</button>
+              <button class="swatch" data-color="#5E1A2B"><i style="background:#5E1A2B"></i>Oxblood</button>
+              <button class="swatch" data-color="#2B3F8F"><i style="background:#2B3F8F"></i>Royal Blue</button>
+            </div>
+          </div>
+          <div class="swatches__group" data-part="rug">
+            <strong>Rug</strong>
+            <div class="swatches__row">
+              <button class="swatch is-active" data-color="#6E1229"><i style="background:#6E1229"></i>Wine</button>
+              <button class="swatch" data-color="#141C3F"><i style="background:#141C3F"></i>Navy</button>
+              <button class="swatch" data-color="#EEF1FA"><i style="background:#EEF1FA"></i>White</button>
+            </div>
+          </div>
+          <div class="swatches__group" data-part="floor">
+            <strong>Flooring</strong>
+            <div class="swatches__row">
+              <button class="swatch is-active" data-color="#4A2C1D"><i style="background:#4A2C1D"></i>Walnut</button>
+              <button class="swatch" data-color="#1A1210"><i style="background:#1A1210"></i>Ebony</button>
+              <button class="swatch" data-color="#E9ECF5"><i style="background:#E9ECF5"></i>White Marble</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn--primary js-open-consult" data-service="the look I styled in 3D">Get This Look Designed</button>
+      </div>
+      <div class="studio3d__stage" id="roomStage">
+        <canvas id="roomCanvas" aria-label="Interactive 3D living room"></canvas>
+        <div class="studio3d__loader" id="roomLoader">Loading 3D room…</div>
+        <div class="studio3d__hint">⟲ Drag to look around</div>
+        <div class="studio3d__view">
+          <button data-view="front" class="is-active">Front</button>
+          <button data-view="corner">Corner</button>
+          <button data-view="top">Top</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS (STEPPER) ============ -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <span class="eyebrow">How We Work</span>
+        <h2 class="title">Your home in <em>6 simple steps</em></h2>
+        <p class="section__lead">Clear milestones and clear deliverables. At every step you know what you get.</p>
+      </div>
+      <div class="stepper">
+        <div class="stepper__tabs" role="tablist">
+          <button class="stepper__tab is-active" data-step="0"><span>01</span>Meet & Brief</button>
+          <button class="stepper__tab" data-step="1"><span>02</span>Concept & Mood</button>
+          <button class="stepper__tab" data-step="2"><span>03</span>3D Design</button>
+          <button class="stepper__tab" data-step="3"><span>04</span>Finalise & Book</button>
+          <button class="stepper__tab" data-step="4"><span>05</span>Build & Install</button>
+          <button class="stepper__tab" data-step="5"><span>06</span>Handover</button>
+        </div>
+        <div class="stepper__panels">
+          <div class="stepper__panel is-active">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 01 / 06</span>
+              <h3>Meet your designer</h3>
+              <p>Visit our Rajarampuri studio or meet virtually. We understand your lifestyle, budget, family needs and taste, then measure your site free of charge.</p>
+              <div class="receive"><strong>You receive</strong><span>Site measurement, design brief & ballpark estimate</span></div>
+            </div>
+          </div>
+          <div class="stepper__panel">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 02 / 06</span>
+              <h3>Concept & moodboards</h3>
+              <p>We build two design directions with materials, palettes and furniture references, so you can see and feel the home before it exists.</p>
+              <div class="receive"><strong>You receive</strong><span>2 moodboards, space plan & material samples</span></div>
+            </div>
+          </div>
+          <div class="stepper__panel">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 03 / 06</span>
+              <h3>Photo-real 3D designs</h3>
+              <p>Every room is rendered in 3D with walkthroughs. Unlimited revisions until every detail feels right.</p>
+              <div class="receive"><strong>You receive</strong><span>3D renders, VR walkthrough & detailed drawings</span></div>
+            </div>
+          </div>
+          <div class="stepper__panel">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 04 / 06</span>
+              <h3>Finalise & book</h3>
+              <p>Approve the final design and an itemised quotation. Lock your price with 10% and get a fixed timeline in writing.</p>
+              <div class="receive"><strong>You receive</strong><span>Itemised BOQ, contract & project schedule</span></div>
+            </div>
+          </div>
+          <div class="stepper__panel">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 05 / 06</span>
+              <h3>Manufacture & install</h3>
+              <p>Precision-made modules from our factory, installed by trained crews. Track progress daily with photos in the Indigo app.</p>
+              <div class="receive"><strong>You receive</strong><span>Weekly reports, site photos & quality audits</span></div>
+            </div>
+          </div>
+          <div class="stepper__panel">
+            <div class="stepper__img" style="background-image:url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="stepper__info">
+              <span class="stepper__count">Step 06 / 06</span>
+              <h3>Move into your dream home</h3>
+              <p>Deep cleaning, styling and a handover ceremony. Your warranty starts, and our care team stays a call away.</p>
+              <div class="receive"><strong>You receive</strong><span>Styled home, warranty card & care manual</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="stepper__controls">
+          <button class="circle-btn" data-step-dir="-1" aria-label="Previous step">←</button>
+          <div class="stepper__progress"><i></i></div>
+          <button class="circle-btn" data-step-dir="1" aria-label="Next step">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COST ESTIMATOR ============ -->
+  <section class="section estimator" id="estimator">
+    <div class="container estimator__grid">
+      <div class="estimator__intro reveal">
+        <span class="eyebrow">Cost Estimator</span>
+        <h2 class="title">Know your budget in <em>30 seconds</em></h2>
+        <p>Choose your home size, rooms and finish level for an instant estimate. Our designers then refine it into an exact, itemised quote.</p>
+        <ul class="ticks">
+          <li>Prices include design, materials, labour & installation</li>
+          <li>No hidden charges, GST shown separately</li>
+          <li>Prices locked for 30 days after the quote</li>
+        </ul>
+      </div>
+      <form class="calc reveal" id="calc">
+        <div class="calc__step">
+          <h4><span>1</span> Home type</h4>
+          <div class="chips" data-name="bhk">
+            <label><input type="radio" name="bhk" value="1" /> <span>1 BHK</span></label>
+            <label><input type="radio" name="bhk" value="2" checked /> <span>2 BHK</span></label>
+            <label><input type="radio" name="bhk" value="3" /> <span>3 BHK</span></label>
+            <label><input type="radio" name="bhk" value="4" /> <span>4+ BHK</span></label>
+          </div>
+        </div>
+        <div class="calc__step">
+          <h4><span>2</span> What do you need?</h4>
+          <div class="chips chips--multi">
+            <label><input type="checkbox" name="room" value="kitchen" checked /> <span>Kitchen</span></label>
+            <label><input type="checkbox" name="room" value="wardrobe" checked /> <span>Wardrobes</span></label>
+            <label><input type="checkbox" name="room" value="living" checked /> <span>Living Room</span></label>
+            <label><input type="checkbox" name="room" value="ceiling" /> <span>False Ceiling</span></label>
+            <label><input type="checkbox" name="room" value="paint" /> <span>Painting</span></label>
+            <label><input type="checkbox" name="room" value="decor" /> <span>Décor & Lighting</span></label>
+          </div>
+        </div>
+        <div class="calc__step">
+          <h4><span>3</span> Finish level</h4>
+          <div class="tiers">
+            <label><input type="radio" name="tier" value="1" /> <span><strong>Essential</strong><small>Smart & durable</small></span></label>
+            <label><input type="radio" name="tier" value="1.45" checked /> <span><strong>Premium</strong><small>Most popular</small></span></label>
+            <label><input type="radio" name="tier" value="2.1" /> <span><strong>Luxe</strong><small>Imported finishes</small></span></label>
+          </div>
+        </div>
+        <div class="calc__result">
+          <div>
+            <small>Estimated budget</small>
+            <strong id="calcOut">₹ 0</strong>
+            <em id="calcEmi">EMI from ₹0/month</em>
+          </div>
+          <button type="button" class="btn btn--light js-open-consult" data-service="Estimate request">Get Exact Quote</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">Client Love</span>
+          <h2 class="title">Stories from <em>happy homes</em></h2>
+        </div>
+        <div class="rating">
+          <strong>4.9</strong>
+          <div><span class="stars">★★★★★</span><small>Based on 386 Google reviews</small></div>
+        </div>
+      </div>
+      <div class="slider" id="reviewSlider">
+        <div class="slider__track">
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>"Maison Indigo turned our cramped 2 BHK into the calmest place we know. The 3D renders matched the final result almost exactly, and they finished 4 days early!"</p>
+            <div class="review__by"><span class="avatar">SP</span><div><strong>Sneha &amp; Rohit Patil</strong><small>2 BHK, Rajarampuri</small></div></div>
+          </article>
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>"Transparent pricing and zero surprises. Our project manager sent photo updates every evening. The kitchen is now my favourite room in the house."</p>
+            <div class="review__by"><span class="avatar">AJ</span><div><strong>Aditi Jadhav</strong><small>3 BHK, Kasaba Bawada</small></div></div>
+          </article>
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>"They designed our 8,000 sq ft office around how our team actually works. Clients compliment the space every single week."</p>
+            <div class="review__by"><span class="avatar">VD</span><div><strong>Vikram Desai</strong><small>Founder, Meridian Labs</small></div></div>
+          </article>
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>"From the first moodboard to the last cushion, the team was thoughtful and patient. Our villa feels like a boutique hotel now."</p>
+            <div class="review__by"><span class="avatar">PK</span><div><strong>Pooja &amp; Nikhil Kulkarni</strong><small>Villa, Panhala</small></div></div>
+          </article>
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>"As NRIs we managed everything remotely. The live tracking app and video walkthroughs made it completely stress-free."</p>
+            <div class="review__by"><span class="avatar">RP</span><div><strong>Rutuja &amp; Sameer Pawar</strong><small>4 BHK, Nagala Park</small></div></div>
+          </article>
+        </div>
+        <div class="slider__controls">
+          <button class="circle-btn" data-slide-dir="-1" aria-label="Previous review">←</button>
+          <div class="slider__dots"></div>
+          <button class="circle-btn" data-slide-dir="1" aria-label="Next review">→</button>
+        </div>
+      </div>
+      <div class="logos">
+        <span>MERIDIAN LABS</span><span>Ghar &amp; Form</span><span>ARCHLINE</span><span>Interiors Ledger</span><span>STONECRAFT</span><span>Velvet Hour</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STUDIO VISIT / LOCATIONS ============ -->
+  <section class="section visit" id="visit">
+    <div class="container visit__grid">
+      <div class="visit__card reveal">
+        <span class="eyebrow">Experience Centre</span>
+        <h2 class="title">Visit our <em>Rajarampuri studio</em></h2>
+        <p class="muted">Touch and feel 2,000+ materials, walk through full-size kitchen displays and meet our designers in person.</p>
+        <div class="visit__info">
+          <div><strong>Address</strong><p>402, Indigo Arc, 6th Lane,<br/>Rajarampuri, Kolhapur 416008</p></div>
+          <div><strong>Open</strong><p>Mon–Sun · 10:00 AM – 8:00 PM</p></div>
+        </div>
+        <div class="visit__types">
+          <label><input type="radio" name="visitType" value="30-min studio tour" checked /><span><strong>Studio Tour</strong><small>30 mins · Explore materials</small></span></label>
+          <label><input type="radio" name="visitType" value="60-min design consult" /><span><strong>Design Consult</strong><small>60 mins · With a designer</small></span></label>
+        </div>
+        <div class="visit__btns">
+          <button class="btn btn--primary js-open-visit">Schedule a Visit</button>
+          <a class="btn btn--outline" href="https://wa.me/918767807414?text=Hi%20Maison%20Indigo%2C%20I%27d%20like%20to%20visit%20your%20studio." target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="visit__map reveal">
+        <div class="locmap" role="img" aria-label="Stylised map showing the studio in Rajarampuri, Kolhapur">
+          <svg class="locmap__streets" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="rgba(185,195,240,.16)" stroke-width="1.5">
+              <path d="M0 60 H600 M0 140 H600 M0 230 H600 M0 310 H600" />
+              <path d="M70 0 V360 M180 0 V360 M300 0 V360 M410 0 V360 M520 0 V360" />
+              <path d="M0 330 L250 0 M330 360 L600 40" />
+            </g>
+            <g fill="none" stroke="rgba(185,195,240,.38)" stroke-width="7" stroke-linecap="round">
+              <path d="M-10 190 C140 170 230 200 300 180 S470 140 610 160" />
+              <path d="M240 -10 C250 90 290 150 300 180 S330 300 320 370" />
+            </g>
+            <ellipse cx="470" cy="270" rx="60" ry="34" fill="rgba(37,65,178,.35)" />
+            <circle cx="300" cy="180" r="46" fill="rgba(240,88,124,.12)" />
+            <circle cx="300" cy="180" r="24" fill="rgba(240,88,124,.18)" />
+          </svg>
+          <div class="locmap__pin"><span></span></div>
+          <div class="locmap__labels" aria-hidden="true">
+            <span style="left:9%;top:44%">Shahupuri</span>
+            <span style="left:58%;top:62%">Rajarampuri</span>
+            <span style="left:66%;top:12%">Tarabai Park</span>
+            <span style="left:12%;top:80%">Nagala Park</span>
+          </div>
+          <div class="locmap__card">
+            <div>
+              <strong>Maison Indigo Experience Centre</strong>
+              <small>Rajarampuri, Kolhapur</small>
+            </div>
+            <a class="btn btn--light btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Rajarampuri%2C%20Kolhapur" target="_blank" rel="noopener">Get Directions →</a>
+          </div>
+        </div>
+        <div class="areas">
+          <strong>We design homes across Kolhapur</strong>
+          <div class="areas__chips">
+            <span>Rajarampuri</span><span>Shahupuri</span><span>Tarabai Park</span><span>Nagala Park</span><span>Ruikar Colony</span><span>Kasaba Bawada</span><span>Sane Guruji Vasahat</span><span>Jawahar Nagar</span><span>Pratibha Nagar</span><span>Ujalaiwadi</span><span>Kalamba</span><span>Ichalkaranji</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq">
+    <div class="container faq__grid">
+      <div class="reveal">
+        <span class="eyebrow">Good to Know</span>
+        <h2 class="title">Frequently asked <em>questions</em></h2>
+        <p class="muted">Can't find your answer? Our team is happy to help.</p>
+        <button class="btn btn--outline js-open-consult">Ask a Designer</button>
+      </div>
+      <div class="accordion">
+        <details class="acc" open>
+          <summary>How much does a full home interior cost?</summary>
+          <p>A 2 BHK typically ranges from ₹4–8 lakhs and a 3 BHK from ₹6–12 lakhs, depending on scope and finishes. Try the cost estimator above for an instant ballpark.</p>
+        </details>
+        <details class="acc">
+          <summary>How long will my project take?</summary>
+          <p>Modular work is delivered in 45 days from design sign-off. Full renovations with civil work usually take 60–90 days. Your timeline is fixed in the contract.</p>
+        </details>
+        <details class="acc">
+          <summary>Do you charge for the first consultation?</summary>
+          <p>No. Your first meeting, site measurement and initial estimate are completely free with no obligation.</p>
+        </details>
+        <details class="acc">
+          <summary>What warranty do you offer?</summary>
+          <p>We offer a 10-year warranty on modular furniture and a 1-year warranty on services, plus free post-handover care visits.</p>
+        </details>
+        <details class="acc">
+          <summary>Can I see the design before work starts?</summary>
+          <p>Absolutely. You get photo-real 3D renders and a VR walkthrough of every room, with unlimited revisions before you approve.</p>
+        </details>
+        <details class="acc">
+          <summary>Do you offer EMI options?</summary>
+          <p>Yes. Our banking partners offer EMIs from 6 to 36 months, including 0% interest plans on select tenures.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNAL ============ -->
+  <section class="section journal" id="journal">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">The Journal</span>
+          <h2 class="title">Ideas &amp; <em>inspiration</em></h2>
+        </div>
+      </div>
+      <div class="journal__grid">
+        <article class="post reveal">
+          <div class="post__media"><div class="post__img" style="background-image:url('https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="post__body"><small>Trends · 5 min read</small><h4>7 interior trends defining Indian homes in 2027</h4><a href="#journal" class="link-arrow js-post">Read article →</a></div>
+        </article>
+        <article class="post reveal">
+          <div class="post__media"><div class="post__img" style="background-image:url('https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="post__body"><small>Guides · 7 min read</small><h4>How to plan a modular kitchen that actually works</h4><a href="#journal" class="link-arrow js-post">Read article →</a></div>
+        </article>
+        <article class="post reveal">
+          <div class="post__media"><div class="post__img" style="background-image:url('https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=800&q=80')"></div></div>
+          <div class="post__body"><small>Small Homes · 4 min read</small><h4>Space-saving ideas for compact city apartments</h4><a href="#journal" class="link-arrow js-post">Read article →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / CTA ============ -->
+  <section class="section contact" id="contact">
+    <canvas class="contact__canvas" id="ctaCanvas" aria-hidden="true"></canvas>
+    <div class="container contact__grid">
+      <div class="contact__text reveal">
+        <span class="eyebrow eyebrow--light">Let's Talk</span>
+        <h2 class="title title--light">Ready to begin your <em>design story?</em></h2>
+        <p>Tell us about your space. We'll respond within one working day with ideas, a rough estimate and a time to meet.</p>
+        <div class="contact__lines">
+          <a href="tel:+918767807414"><span>Call</span>+91 87678 07414</a>
+          <a href="mailto:hello@maisonindigo.studio"><span>Email</span>hello@maisonindigo.studio</a>
+          <a href="https://wa.me/918767807414" target="_blank" rel="noopener"><span>WhatsApp</span>Chat with a designer</a>
+        </div>
+      </div>
+      <form class="form form--card js-lead-form reveal" data-form="contact" novalidate>
+        <div class="form__row">
+          <div class="field"><input type="text" name="name" placeholder=" " required /><label>Full Name</label></div>
+          <div class="field"><input type="tel" name="phone" placeholder=" " required pattern="[0-9]{10}" maxlength="10" /><label>Mobile Number</label></div>
+        </div>
+        <div class="field"><input type="email" name="email" placeholder=" " required /><label>Email Address</label></div>
+        <div class="form__row">
+          <div class="field">
+            <select name="property" required>
+              <option value="" disabled selected hidden></option>
+              <option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4+ BHK / Villa</option><option>Office / Commercial</option>
+            </select>
+            <label>Property Type</label>
+          </div>
+          <div class="field">
+            <select name="budget" required>
+              <option value="" disabled selected hidden></option>
+              <option>Under ₹5 Lakhs</option><option>₹5–10 Lakhs</option><option>₹10–20 Lakhs</option><option>₹20 Lakhs+</option>
+            </select>
+            <label>Budget</label>
+          </div>
+        </div>
+        <div class="field"><textarea name="message" rows="3" placeholder=" "></textarea><label>Tell us about your project (optional)</label></div>
+        <button type="submit" class="btn btn--primary btn--block">Send Enquiry</button>
+        <small class="form__note">By submitting, you agree to be contacted by Maison Indigo. We never share your data.</small>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#home" class="logo logo--light"><span class="logo__mark">MI</span><span class="logo__text">Maison <em>Indigo</em></span></a>
+        <p>A design-led interior studio creating thoughtful homes and workplaces across Kolhapur since 2011.</p>
+        <form class="newsletter" id="newsletter" novalidate>
+          <input type="email" placeholder="Your email for design tips" required aria-label="Email" />
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Pinterest">PI</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="LinkedIn">IN</a>
+        </div>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <a href="#about">About Us</a><a href="#process">Our Process</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="#journal">Journal</a>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Full Home Interiors</a><a href="#services">Modular Kitchens</a><a href="#services">Wardrobes</a><a href="#services">Commercial</a><a href="#services">Renovation</a>
+      </div>
+      <div>
+        <h5>Reach Us</h5>
+        <p>402, Indigo Arc, 6th Lane,<br/>Rajarampuri, Kolhapur 416008</p>
+        <a href="tel:+918767807414">+91 87678 07414</a>
+        <a href="mailto:hello@maisonindigo.studio">hello@maisonindigo.studio</a>
+      </div>
+    </div>
+    <div class="container footer__seo">
+      <strong>Interior designers in:</strong> Rajarampuri · Shahupuri · Tarabai Park · Nagala Park · Ruikar Colony · Kasaba Bawada · Jawahar Nagar · Kalamba · Ichalkaranji · Panhala · Gadhinglaj · Jaysingpur · Sangli
+    </div>
+    <div class="container footer__bottom">
+      <small>© <span id="year"></span> Maison Indigo Interiors Pvt. Ltd. All rights reserved.</small>
+      <small><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Warranty Policy</a></small>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING ACTIONS ============ -->
+  <div class="floaters">
+    <a class="floater floater--wa" href="https://wa.me/918767807414?text=Hi%20Maison%20Indigo%2C%20I%27m%20interested%20in%20interior%20design." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+    </a>
+    <a class="floater floater--call" href="tel:+918767807414" aria-label="Call us">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+    </a>
+    <button class="floater floater--top" id="toTop" aria-label="Back to top">↑</button>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Visit modal -->
+  <div class="modal" id="visitModal" aria-hidden="true" role="dialog" aria-labelledby="visitTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div data-lenis-prevent class="modal__card">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+      <div class="modal__body">
+        <span class="eyebrow">Schedule a Visit</span>
+        <h3 id="visitTitle">Book your studio appointment</h3>
+        <form class="form js-lead-form" data-form="visit" novalidate>
+          <div class="field"><input type="text" name="name" placeholder=" " required /><label>Your Name</label></div>
+          <div class="field"><input type="tel" name="phone" placeholder=" " required pattern="[0-9]{10}" maxlength="10" /><label>Mobile Number</label></div>
+          <div class="form__row">
+            <div class="field"><input type="date" name="date" required class="js-min-today" /><label class="label--fixed">Preferred Date</label></div>
+            <div class="field">
+              <select name="time" required>
+                <option value="" disabled selected hidden></option>
+                <option>10:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option>
+              </select>
+              <label>Time Slot</label>
+            </div>
+          </div>
+          <input type="hidden" name="visitType" value="30-min studio tour" />
+          <button type="submit" class="btn btn--primary btn--block">Confirm Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js?v=1.0.0"></script>
+  <script src="js/animations.js?v=1.0.0"></script>
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+  <script type="module" src="js/three-scenes.js?v=1.0.0"></script>
+</body>
+</html>
