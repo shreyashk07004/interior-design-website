@@ -24,7 +24,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-padding-top: 90px; }
+html { scroll-padding-top: 90px; overflow-x: clip; }
+@supports not (overflow: clip) { html { overflow-x: hidden; } }
 html:not(.lenis) { scroll-behavior: smooth; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -577,9 +578,11 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .nav {
     position: fixed; top: 0; right: 0; height: 100vh; width: min(340px, 85vw); background: var(--night);
     flex-direction: column; align-items: flex-start; padding: 110px 34px 40px; gap: 6px;
-    transform: translateX(100%); transition: transform .5s var(--ease); z-index: -1; overflow-y: auto;
+    /* clip-path (not translateX) hides the panel: an off-screen transform widens the page on phones */
+    clip-path: inset(0 0 0 100%); visibility: hidden;
+    transition: clip-path .5s var(--ease), visibility 0s linear .5s; z-index: -1; overflow-y: auto;
   }
-  .nav.is-open { transform: none; }
+  .nav.is-open { clip-path: inset(0 0 0 0); visibility: visible; transition: clip-path .5s var(--ease), visibility 0s; }
   .nav > a, .nav__drop > a { color: var(--white); font-family: var(--serif); font-size: 28px; }
   .nav > a.is-active { color: var(--wine-bright); }
   .nav__menu { position: static; opacity: 1; visibility: visible; transform: none; background: none; box-shadow: none; border: 0; padding: 0 0 0 12px; min-width: 0; }
@@ -639,6 +642,120 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .calc__result .btn { width: 100%; }
   .studio3d__stage { aspect-ratio: 4/5; }
   .studio3d__view { top: 16px; right: 16px; bottom: auto; }
+
+  /* Full-width menu drawer; logo stays visible above it */
+  .nav { width: 100%; height: 100svh; padding: 100px 28px 40px; }
+  .nav > a, .nav__drop > a { font-size: 26px; }
+  .header:has(.nav.is-open) .logo { position: relative; z-index: 2; }
+  .header:has(.nav.is-open) .logo__mark { background: var(--white); color: var(--night); }
+  .header:has(.nav.is-open) .logo__text { color: var(--white); }
+  .header:has(.nav.is-open) .logo__text em { color: var(--wine-bright); }
+
+  /* --- Mobile polish --- */
+  .section { padding: 64px 0; }
+  .section__head { margin-bottom: 36px; gap: 20px; }
+  .eyebrow { letter-spacing: .16em; font-size: 11px; gap: 10px; }
+  .eyebrow::before { width: 22px; }
+  .title { font-size: clamp(32px, 9vw, 40px); }
+  .btn { padding: 15px 26px; }
+
+  /* Hero: full-height on phones, stacked full-width buttons, arrows clear of the floaters */
+  .hero { min-height: calc(100svh - 104px); }
+  .hero__content { padding: 56px 0 48px; }
+  .hero__title { font-size: clamp(40px, 11.5vw, 54px); margin-bottom: 18px; }
+  .hero__sub { margin-bottom: 28px; }
+  .hero__btns { flex-direction: column; gap: 12px; }
+  .hero__btns .btn { width: 100%; }
+  .hero__counter { margin-top: 36px; padding-top: 20px; padding-right: 64px; font-size: 18px; }
+  .hero__arrow { width: 42px; height: 42px; font-size: 16px; }
+
+  .about__grid { gap: 48px; }
+  .about__sign .btn { width: 100%; }
+  .stats { padding: 60px 0; }
+  .stat strong, .stat > span { font-size: clamp(34px, 10vw, 44px); }
+  .stat p { font-size: 11px; letter-spacing: .1em; }
+
+  .service__media { aspect-ratio: 16/10; }
+  .service__body { padding: 24px 22px; }
+  .service h3 { font-size: 25px; padding-right: 56px; }
+  .usp { margin-top: 40px; }
+  .usp__item { padding: 20px; }
+
+  .filters { gap: 6px; }
+  .filter { padding: 8px 16px; font-size: 13px; }
+  .gallery { gap: 14px; grid-auto-rows: 240px; }
+  .tile figcaption { padding: 20px; }
+  .tile figcaption span { color: rgba(255,255,255,.85); font-size: 11px; }
+  .tile figcaption h4 { font-size: 24px; }
+
+  .compare__grid, .studio3d__grid, .estimator__grid, .visit__grid, .faq__grid, .contact__grid { gap: 40px; }
+  .compare__facts strong { font-size: 38px; }
+  .ba__handle span { width: 46px; height: 46px; font-size: 18px; }
+  .ba__label { top: 14px; font-size: 11px; padding: 5px 12px; }
+  .ba__label--l { left: 14px; } .ba__label--r { right: 14px; }
+
+  .stepper__tab { padding: 14px 12px; font-size: 13px; }
+  .stepper__tab span { font-size: 22px; }
+  .stepper__panels, .stepper__panel { min-height: 0; }
+  .receive { padding: 12px 16px; }
+
+  .calc { padding: 22px 18px; border-radius: 20px; }
+  .chips { gap: 8px; }
+  .chips span { padding: 9px 16px; font-size: 13px; }
+  .calc__result { padding: 20px; }
+
+  .section__head .rating { width: 100%; }
+  .review { padding: 26px 22px; }
+  .review p { font-size: 19px; }
+  .logos { margin-top: 48px; padding-top: 32px; gap: 18px 24px; justify-content: center; }
+  .logos span { font-size: 19px; }
+
+  .visit__card { padding: 26px 20px; border-radius: 20px; }
+  .visit__btns .btn { flex: 1 1 100%; }
+  .locmap { min-height: 300px; border-radius: 20px; }
+  .locmap__card { left: 12px; right: 12px; bottom: 12px; padding: 14px 16px; }
+  .locmap__card .btn { width: 100%; }
+  .areas { padding: 22px 20px; border-radius: 20px; }
+
+  .faq .btn--outline { width: 100%; }
+  .acc summary { padding: 18px 18px; font-size: 16px; }
+  .acc p { padding: 0 18px 20px; }
+
+  .contact__lines a { font-size: 22px; word-break: break-word; }
+  .form--card { padding: 24px 18px; border-radius: 20px; }
+
+  /* 16px inputs stop iOS Safari zooming in on focus */
+  .field input, .field select, .field textarea, .newsletter input { font-size: 16px; }
+
+  /* Footer: link columns side by side */
+  .footer { padding-top: 56px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .footer__brand, .footer__grid > div:last-child { grid-column: 1 / -1; }
+  .newsletter { max-width: none; }
+  .footer__bottom { flex-direction: column; gap: 8px; }
+
+  /* Lightbox: arrows sit below the image instead of squeezing it */
+  .lightbox { flex-wrap: wrap; align-content: center; padding: 60px 12px 24px; }
+  .lightbox figure { order: -1; flex: 1 1 100%; }
+  .lightbox img { max-height: 65vh; }
+  .lightbox figcaption { font-size: 20px; }
+  .lightbox__close { top: 12px; right: 18px; }
+
+  .floaters { right: 14px; bottom: 14px; gap: 10px; }
+  .floater { width: 48px; height: 48px; }
+
+  .modal { padding: 12px; }
+  .modal__card { max-height: calc(100svh - 24px); border-radius: 20px; }
+  .modal__visual { min-height: 130px; }
+  .modal__body { padding: 26px 20px 22px; }
+}
+@media (max-width: 380px) {
+  .container { width: calc(100% - 28px); }
+  .logo__text { font-size: 20px; }
+  .logo__mark { width: 40px; height: 40px; font-size: 18px; }
+  .stepper__tabs { gap: 8px; }
+  .stats__grid { gap: 32px 12px; }
+  .tiers span { padding: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
